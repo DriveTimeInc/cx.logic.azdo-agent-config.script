@@ -2,13 +2,14 @@ sudo apt-get update
 sudo apt-get upgrade
 
 # Install pre-requisite packages.
-sudo apt-get install \
+sudo apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
     lsb-release \
     apt-transport-https \
     software-properties-common \
+    zip \
 
 # Download the Microsoft repository GPG keys
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
