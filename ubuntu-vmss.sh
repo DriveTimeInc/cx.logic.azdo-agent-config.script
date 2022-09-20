@@ -2,7 +2,13 @@ sudo apt update
 # Update the list of packages
 sudo apt-get update
 # Install pre-requisite packages.
-sudo apt-get install -y wget apt-transport-https software-properties-common
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release \
+    apt-transport-https \
+    software-properties-common \
 # Download the Microsoft repository GPG keys
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
 # Register the Microsoft repository GPG keys
@@ -12,16 +18,10 @@ sudo apt-get update
 # Install PowerShell
 sudo apt-get install -y powershell
 
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
 
 
 sudo apt-get remove docker docker-engine docker.io containerd runc
 
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
