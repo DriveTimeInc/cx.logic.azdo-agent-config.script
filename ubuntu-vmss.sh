@@ -29,6 +29,6 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 
 sudo apt update
 
-sudo apt install docker-ce docker-ce-cli containerd.io
+sudo apt install moby-engine moby-cli containerd.io
 
 sudo service docker start
