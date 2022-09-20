@@ -39,5 +39,6 @@ apt-cache policy docker-ce
 # Install docker-ce
 sudo apt-get install -y docker-ce
 
-# Check docker status
-sudo systemctl status docker
+
+# Install Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
