@@ -28,3 +28,5 @@ $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 sudo service docker start
+
+systemctl start docker
