@@ -23,8 +23,8 @@ sudo apt-get update
 # Install PowerShell
 sudo apt-get install -y powershell
 
-# Install aspnetcore runtime 6.0
-sudo apt-get install -y aspnetcore-runtime-6.0
+# Install dotnet SDK
+sudo apt-get install -y dotnet-sdk-6.0
 
 # Add the GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
