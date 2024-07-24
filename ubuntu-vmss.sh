@@ -11,25 +11,25 @@ sudo apt-get install -y \
     software-properties-common \
     zip \
     openssl \
-    build-essential \
-    git \
-    wget \
-    llvm \
-    bzip2 \
-    libssl-dev \
-    zlib1g-dev \
-    libreadline-dev \
-    libsqlite3-dev \
-    libncurses-dev \
-    libncurses5-dev \
-    libncursesw5-dev \
-    xz-utils \
-    tk-dev \
-    libffi-dev \
-    liblzma-dev \
-    libxml2-dev \
-    libxmlsec1-dev \
-    libbz2-dev
+    # build-essential \
+    # git \
+    # wget \
+    # llvm \
+    # bzip2 \
+    # libssl-dev \
+    # zlib1g-dev \
+    # libreadline-dev \
+    # libsqlite3-dev \
+    # libncurses-dev \
+    # libncurses5-dev \
+    # libncursesw5-dev \
+    # xz-utils \
+    # tk-dev \
+    # libffi-dev \
+    # liblzma-dev \
+    # libxml2-dev \
+    # libxmlsec1-dev \
+    # libbz2-dev
 
 
 # Download the Microsoft repository GPG keys
