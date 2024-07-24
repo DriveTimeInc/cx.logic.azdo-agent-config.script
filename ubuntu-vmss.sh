@@ -70,24 +70,24 @@ curl -LO "https://github.com/argoproj/argo-rollouts/releases/latest/download/kub
 chmod +x ./kubectl-argo-rollouts-linux-amd64
 mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
-# install pyenv
-curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+# # install pyenv
+# curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
 
-# setup pyenv entries in .bashrc
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+# # setup pyenv entries in .bashrc
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+# echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+# echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 
-# setup pyenv entries in .profile
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-echo 'eval "$(pyenv init -)"' >> ~/.profile
+# # setup pyenv entries in .profile
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
+# echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
+# echo 'eval "$(pyenv init -)"' >> ~/.profile
 
-# reload the shell
-source ~/.profile
+# # reload the shell
+# source ~/.profile
 
-# install 3.11.9
-pyenv install 3.11.9
+# # install 3.11.9
+# pyenv install 3.11.9
 
-# set the system to use 3.11.9
-pyenv global 3.11.9
+# # set the system to use 3.11.9
+# pyenv global 3.11.9
