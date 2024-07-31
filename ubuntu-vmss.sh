@@ -70,15 +70,19 @@ curl -LO "https://github.com/argoproj/argo-rollouts/releases/latest/download/kub
 chmod +x ./kubectl-argo-rollouts-linux-amd64
 mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
-# install pyenv
+### Python tool install
+
+# install pyenv (using pyenv so different versions can be installed easily)
 git clone https://github.com/pyenv/pyenv.git /usr/local/bin/.pyenv
 export PYENV_ROOT="/usr/local/bin/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# install/set 3.11.9
+# install python version/set to global
 pyenv install 3.11.9
 pyenv global 3.11.9
+
+# set up the tool installer:
 
 # from: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0?view=azure-pipelines#how-can-i-configure-a-self-hosted-agent-to-use-this-task
 # also from: https://dev.to/akaszynski/create-an-azure-self-hosted-agent-without-going-insane-173g
