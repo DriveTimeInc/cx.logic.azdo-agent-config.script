@@ -11,26 +11,26 @@ sudo apt-get install -y \
     software-properties-common \
     zip \
     openssl \
-    # build-essential \
-    # git \
-    # wget \
-    # llvm \
-    # bzip2 \
-    # libssl-dev \
-    # zlib1g-dev \
-    # libreadline-dev \
-    # libsqlite3-dev \
-    # libncurses-dev \
-    # libncurses5-dev \
-    # libncursesw5-dev \
-    # xz-utils \
-    # tk-dev \
-    # libffi-dev \
-    # liblzma-dev \
-    # libxml2-dev \
-    # libxmlsec1-dev \
-    # libbz2-dev
-
+    build-essential \
+    git \
+    wget \
+    llvm \
+    bzip2 \
+    libssl-dev \
+    zlib1g-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libncurses-dev \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libffi-dev \
+    liblzma-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libbz2-dev
+    
 
 # Download the Microsoft repository GPG keys
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
@@ -70,24 +70,44 @@ curl -LO "https://github.com/argoproj/argo-rollouts/releases/latest/download/kub
 chmod +x ./kubectl-argo-rollouts-linux-amd64
 mv ./kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
-# # install pyenv
-# curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+### Python tool install
 
-# # setup pyenv entries in .bashrc
-# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
-# echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
-# echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+# install pyenv (using pyenv so different versions can be installed easily)
+git clone https://github.com/pyenv/pyenv.git /usr/local/bin/.pyenv
+export PYENV_ROOT="/usr/local/bin/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-# # setup pyenv entries in .profile
-# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.profile
-# echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.profile
-# echo 'eval "$(pyenv init -)"' >> ~/.profile
+# install python version/set to global
+pyenv install 3.11.9
+pyenv global 3.11.9
 
-# # reload the shell
-# source ~/.profile
+# set up the tool installer:
 
-# # install 3.11.9
-# pyenv install 3.11.9
+# from: https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/use-python-version-v0?view=azure-pipelines#how-can-i-configure-a-self-hosted-agent-to-use-this-task
+# also from: https://dev.to/akaszynski/create-an-azure-self-hosted-agent-without-going-insane-173g
+LOCAL_AGENT_TOOLS_DIR="/agent/_work/_tool"
 
-# # set the system to use 3.11.9
-# pyenv global 3.11.9
+# # structure must match the following:
+# $AGENT_TOOLSDIRECTORY/
+#     Python/
+#         3.11/ -> 3.11.9/
+#         3.11.9/
+#             x64/
+#                 {tool files}
+#             x64.complete
+
+# Create the directory for 3.11 and 3.11.9
+mkdir -p "$LOCAL_AGENT_TOOLS_DIR/Python/3.11"
+mkdir -p "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9"
+
+# Create the simlink from 3.11, to 3.11.9
+# this is so the tool installer task can specify 3.11, or 3.11.9
+ln -s "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9" "$LOCAL_AGENT_TOOLS_DIR/Python/3.11"
+
+# create the venv inside the 3.11.9/x64 directory
+python -m venv "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9/x64"
+
+# create the .complete file
+touch "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9/x64.complete"
+
