@@ -61,7 +61,8 @@ apt-cache policy docker-ce
 
 # Install docker-ce
 sudo apt-get install -y docker-ce
-
+#grant perms to docker.sock
+sudo chmod 666 /var/run/docker.sock
 # Install Azure CLI
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
