@@ -60,7 +60,8 @@ sudo apt-get update
 apt-cache policy docker-ce
 
 # Install docker-ce
-sudo apt-get install -y docker-ce
+#sudo apt-get install -y docker-ce
+sudo apt-get install -y docker-ce=5:27.5.1-1~ubuntu.22.04~jammy
 #grant perms to docker.sock
 sudo chmod 666 /var/run/docker.sock
 # Install Azure CLI
