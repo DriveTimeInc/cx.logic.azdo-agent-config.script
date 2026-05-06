@@ -1,3 +1,6 @@
+sudo sed -i 's|http://azure.archive.ubuntu.com|https://azure.archive.ubuntu.com|g' /etc/apt/sources.list
+sudo sed -i 's|http://security.ubuntu.com|https://security.ubuntu.com|g' /etc/apt/sources.list
+
 sudo apt-get update
 sudo apt-get upgrade
 
