@@ -1,6 +1,6 @@
 echo "Starting Installation 5/6/26"
 
-sudo sed -i 's|http://azure.archive.ubuntu.com|http://us.archive.ubuntu.com|g' /etc/apt/sources.list
+#sudo sed -i 's|http://azure.archive.ubuntu.com|http://us.archive.ubuntu.com|g' /etc/apt/sources.list
 #sudo sed -i 's|http://security.ubuntu.com|http://security.ubuntu.com|g' /etc/apt/sources.list
 
 sudo apt-get update
@@ -35,7 +35,6 @@ sudo apt-get install -y \
     libxml2-dev \
     libxmlsec1-dev \
     libbz2-dev \
-    azure-cli 
 
 # Download the Microsoft repository GPG keys
 wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb"
