@@ -1,4 +1,5 @@
-echo "Starting Installation 5/6/26"
+SCRIPT_VERSION="2.0.0"  # increment this whenever you change the script
+SCRIPT_DATE="2026-05-08"
 
 sudo sed -i 's|http://azure.archive.ubuntu.com|http://us.archive.ubuntu.com|g' /etc/apt/sources.list
 #sudo sed -i 's|http://security.ubuntu.com|http://security.ubuntu.com|g' /etc/apt/sources.list
@@ -116,4 +117,14 @@ python -m venv "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9/x64"
 
 # create the .complete file
 touch "$LOCAL_AGENT_TOOLS_DIR/Python/3.11.9/x64.complete"
+
+echo "========================================"
+echo "Provisioning Complete"
+echo "Script Version: $SCRIPT_VERSION ($SCRIPT_DATE)"
+echo "Hostname: $(hostname)"
+echo "Date: $(date)"
+echo "Python version: $(python --version 2>&1)"
+echo "Azure CLI version: $(az --version 2>&1 | head -1)"
+echo "Docker version: $(docker --version 2>&1)"
+echo "========================================"
 
