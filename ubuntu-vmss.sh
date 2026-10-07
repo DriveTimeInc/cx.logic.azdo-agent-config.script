@@ -1,6 +1,8 @@
 SCRIPT_VERSION="2.0.0"  # increment this whenever you change the script
 SCRIPT_DATE="2026-05-08"
 
+cloud-init status --wait
+
 sudo sed -i 's|http://azure.archive.ubuntu.com|http://us.archive.ubuntu.com|g' /etc/apt/sources.list
 #sudo sed -i 's|http://security.ubuntu.com|http://security.ubuntu.com|g' /etc/apt/sources.list
 
